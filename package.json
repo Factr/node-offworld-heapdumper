@@ -1,0 +1,41 @@
+{
+  "name": "heapdump-offworld",
+  "description": "An NPM module that makes it easy to save heapdumps to an external storage service (starting with Amazon S3).",
+  "version": "0.0.0",
+  "dependencies": {
+    "aws-sdk": "^2.1.14",
+    "heapdump": "^0.3.5",
+    "moment": "^2.9.0",
+    "s3-upload-stream": "^1.0.7",
+    "tmp": "0.0.24",
+    "underscore": "^1.8.2"
+  },
+  "scripts": {
+    "lint": "jshint .",
+    "checkStyle": "jscs .",
+    "pretest": "npm run-script lint",
+    "test": "istanbul cover ./node_modules/.bin/_mocha specs",
+    "nctest": "./node_modules/.bin/_mocha specs",
+    "posttest": "istanbul check-coverage --statements 80 --branches 70 --functions 80 --lines 80 && rm -rf coverage",
+    "temp_prepublish": "npm test && npm prune"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "author": "Adam Creeger <adamcreeger@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "istanbul": "^0.3.2",
+    "jscs": "^1.6.1",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.4",
+    "mocha-clean": "^0.4.0",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:acreeger/node-heapdump-offworld.git"
+  }
+}

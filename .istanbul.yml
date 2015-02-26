@@ -1,0 +1,4 @@
+#verbose: true
+instrumentation:
+    default-excludes: true
+    excludes: ["**/test/**", "**/specs/**"]
