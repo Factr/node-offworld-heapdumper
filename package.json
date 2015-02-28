@@ -17,7 +17,7 @@
     "test": "istanbul cover ./node_modules/.bin/_mocha specs",
     "nctest": "./node_modules/.bin/_mocha specs",
     "posttest": "istanbul check-coverage --statements 80 --branches 70 --functions 80 --lines 80 && rm -rf coverage",
-    "temp_prepublish": "npm test && npm prune"
+    "prepublish": "npm test && npm prune"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
@@ -26,6 +26,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^2.1.0",
+    "coveralls": "^2.11.2",
     "istanbul": "^0.3.2",
     "jscs": "^1.6.1",
     "jshint": "^2.5.6",
