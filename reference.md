@@ -35,12 +35,14 @@ Access to the Destinations included in offworld-heapdumper. The available proper
 **Type**: `Object`  
 <a name="OffWorldHeapDumper#writeSnapshot"></a>
 ##offWorldHeapDumper.writeSnapshot(options, cb)
-Call this method to create a heapdump and save it to the destination specified in the [OffWorldHeapDumper](#OffWorldHeapDumper) constructor.
+Call this method to create a heapdump and save it to the destination specified in the [OffWorldHeapDumper](#OffWorldHeapDumper)
+constructor.
 
 **Params**
 
 - options `object` - (optional)  An options object containing:
-    - destinationFilename (optional) - defaults to a filename derived from the current UTC date: `YYYYMMDD_HHmmss.heapdump`  
+    - destinationFilename (optional) - defaults to a filename derived from the current UTC date:
+    `YYYYMMDD_HHmmss.heapdump`  
 - cb `function` - A callback of the form function(err, details):
     - err - any error that occured during the save and upload process
     - details - if successful, this contains the result of the upload. The exact format depends on the `Destination`.  
@@ -64,13 +66,14 @@ TODO: Document details (from s3-upload-stream)
 
 - options  - (required)
 An object containing the following options:
-* bucket (required),
-* acl (default: private),
-* region (default: us-east-1),
-* accessKeyId,
-* secretAccessKey,
-* sessionToken,
-* keyPrefix  
+    * bucket (required),
+    * acl (default: `private`)
+    * region (default: `us-east-1`),
+    * keyPrefix (default: `""`) - prepended to the destination filename on S3. If this ends with a `/`,
+    it will act as a directory
+    * accessKeyId (default: taken from standard AWS environment variables, if set),
+    * secretAccessKey (default: taken from standard AWS environment variables, if set),
+    * sessionToken (default: taken from standard AWS environment variables, if set),  
 
 <a name="S3World#save"></a>
 ##s3World.save(heapdumpPath, destinationFilename, cb)

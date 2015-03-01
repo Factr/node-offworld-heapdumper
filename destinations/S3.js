@@ -11,13 +11,14 @@ var AWS               = require("aws-sdk"),
  * TODO: Document details (from s3-upload-stream)
  * @param options (required)
  * An object containing the following options:
- * * bucket (required),
- * * acl (default: private),
- * * region (default: us-east-1),
- * * accessKeyId,
- * * secretAccessKey,
- * * sessionToken,
- * * keyPrefix
+ *     * bucket (required),
+ *     * acl (default: `private`)
+ *     * region (default: `us-east-1`),
+ *     * keyPrefix (default: `""`) - prepended to the destination filename on S3. If this ends with a `/`,
+ *     it will act as a directory
+ *     * accessKeyId (default: taken from standard AWS environment variables, if set),
+ *     * secretAccessKey (default: taken from standard AWS environment variables, if set),
+ *     * sessionToken (default: taken from standard AWS environment variables, if set),
  * @constructor
  */
 function S3World(options) {

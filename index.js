@@ -28,9 +28,11 @@ function createDefaultDestinationFilename() {
 }
 
 /**
- * Call this method to create a heapdump and save it to the destination specified in the {@link OffWorldHeapDumper} constructor.
+ * Call this method to create a heapdump and save it to the destination specified in the {@link OffWorldHeapDumper}
+ * constructor.
  * @param options (optional) {object} An options object containing:
- *     - destinationFilename (optional) - defaults to a filename derived from the current UTC date: `YYYYMMDD_HHmmss.heapdump`
+ *     - destinationFilename (optional) - defaults to a filename derived from the current UTC date:
+ *     `YYYYMMDD_HHmmss.heapdump`
  * @param cb {function} A callback of the form function(err, details):
  *     - err - any error that occured during the save and upload process
  *     - details - if successful, this contains the result of the upload. The exact format depends on the `Destination`.

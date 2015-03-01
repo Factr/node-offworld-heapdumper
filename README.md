@@ -26,7 +26,7 @@ In this scenario, we push the heapdump to the S3 bucket of your choice with defa
 
 * An `ACL` of `private`
 * A name derived from the current time (UTC) i.e. `20150101_153454.heapdump`
-* S3 Authentication credentials taken from environment variables TODO: LINK FOR MORE INFO
+* S3 Authentication credentials taken from [standard AWS SDK Configuration options](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html).
 
 ##### Code
     var HeapdumpOffworld = require("heapdump-offworld");
@@ -42,12 +42,11 @@ In this scenario, we push the heapdump to the S3 bucket of your choice with defa
         // TODO: What does details contain?
     });
 
+## TODO: Other examples: multi environment using KeyPrefix
+
 ##Reference
 
-Can you generate docs fomr JSDoc?
-MULTI ENVIRONMENT - KeyPrefix
-
-Mulitple
+See the [reference](reference.md) for a full description of how to use this module.
 
 ## Credits
 [Adam Creeger](https://github.com/acreeger/)
