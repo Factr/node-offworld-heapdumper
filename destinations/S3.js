@@ -4,16 +4,20 @@ var AWS               = require("aws-sdk"),
     fs                = require("fs");
 
 //TODO: Document each option in README.md
-/***
+/**
+ * Use this to upload a heapdump to S3.
  *
- * @param options An object containing the following options:
- *            bucket (required),
- *            acl (default: private),
- *            region (default: us-east-1),
- *            accessKeyId,
- *            secretAccessKey,
- *            sessionToken,
- *            keyPrefix
+ * The details object provided in the {@link OffWorldHeapDumper#writeSnapshot} callback is of the form:
+ * TODO: Document details (from s3-upload-stream)
+ * @param options (required)
+ * An object containing the following options:
+ * * bucket (required),
+ * * acl (default: private),
+ * * region (default: us-east-1),
+ * * accessKeyId,
+ * * secretAccessKey,
+ * * sessionToken,
+ * * keyPrefix
  * @constructor
  */
 function S3World(options) {

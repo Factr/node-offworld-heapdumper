@@ -1,5 +1,5 @@
 {
-  "name": "heapdump-offworld",
+  "name": "offworld-heapdumper",
   "description": "An NPM module that makes it easy to save heapdumps to an external storage service (starting with Amazon S3).",
   "version": "0.0.0",
   "dependencies": {
@@ -17,7 +17,8 @@
     "test": "istanbul cover ./node_modules/.bin/_mocha specs",
     "nctest": "./node_modules/.bin/_mocha specs",
     "posttest": "istanbul check-coverage --statements 80 --branches 70 --functions 80 --lines 80 && rm -rf coverage",
-    "prepublish": "npm test && npm prune"
+    "doc": "jsdoc2md --src index.js destinations/S3.js > reference.md",
+    "prepublish": "npm doc && npm test && npm prune"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
@@ -29,6 +30,7 @@
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.2",
     "jscs": "^1.6.1",
+    "jsdoc-to-markdown": "^0.5.11",
     "jshint": "^2.5.6",
     "mocha": "^1.21.4",
     "mocha-clean": "^0.4.0",
