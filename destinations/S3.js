@@ -38,7 +38,7 @@ function S3World(options) {
   this.options = _.extend({}, defaults, options);
 
   if (!options.bucket) {
-    throw new Error("heapdump-offworld-S3: bucket is a required option");
+    throw new Error("offworld-heapdumper-S3: bucket is a required option");
   }
 
   var AWSConfigProps = ["sessionToken", "accessKeyId", "secretAccessKey", "region"];

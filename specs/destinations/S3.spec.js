@@ -26,8 +26,8 @@ describe("S3World", function() {
         new S3Destination({});
       };
 
-      expect(noBucket).to.throw(Error, "heapdump-offworld-S3: bucket is a required option");
-      expect(noOptions).to.throw(Error, "heapdump-offworld-S3: bucket is a required option");
+      expect(noBucket).to.throw(Error, "offworld-heapdumper-S3: bucket is a required option");
+      expect(noOptions).to.throw(Error, "offworld-heapdumper-S3: bucket is a required option");
     });
     it("should default to sensible config defaults", function() {
       var s3 = new S3Destination({bucket:"keeping-up-appearances"});

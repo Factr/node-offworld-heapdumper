@@ -39,6 +39,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:acreeger/node-heapdump-offworld.git"
+    "url": "git@github.com:Factr/node-offworld-heapdumper.git"
   }
 }

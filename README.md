@@ -1,16 +1,16 @@
-# heapdump-offworld
+# offworld-heapdumper
 
 An NPM module that makes it easy to save NodeJS heapdumps to an external storage service (starting with Amazon S3).
 Useful for troubleshooting memory issues on PaaS environments such as Heroku.
 
-[![build status](https://secure.travis-ci.org/Factr/node-heapdump-offworld.svg)](http://travis-ci.org/Factr/node-heapdump-offworld)
-[![Coverage Status](https://coveralls.io/repos/Factr/node-heapdump-offworld/badge.svg)](https://coveralls.io/r/Factr/node-heapdump-offworld)
-[![dependency status](https://david-dm.org/Factr/node-heapdump-offworld.svg)](https://david-dm.org/Factr/node-heapdump-offworld)
+[![build status](https://secure.travis-ci.org/Factr/node-offworld-heapdumper.svg)](http://travis-ci.org/Factr/node-offworld-heapdumper)
+[![Coverage Status](https://coveralls.io/repos/Factr/node-offworld-heapdumper/badge.svg)](https://coveralls.io/r/Factr/node-offworld-heapdumper)
+[![dependency status](https://david-dm.org/Factr/node-offworld-heapdumper.svg)](https://david-dm.org/Factr/node-offworld-heapdumper)
 
 ## Installation
 
 ```
-npm install node-heapdump-offworld --save
+npm install node-offworld-heapdumper --save
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ In this scenario, we push the heapdump to the S3 bucket of your choice with defa
 * S3 Authentication credentials taken from [standard AWS SDK Configuration options](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html).
 
 ##### Code
-    var HeapdumpOffworld = require("heapdump-offworld");
+    var HeapdumpOffworld = require("offworld-heapdumper");
     var S3Destination = HeapdumpOffworld.Destinations.S3;
 
     var destination = new S3Destination({bucket:"hyacinth"});

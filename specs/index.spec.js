@@ -12,7 +12,7 @@ var HeapdumpOffworld = require("../index");
 var S3World = require("../destinations/S3");
 
 var clock;
-describe("node-heapdump-offworld", function () {
+describe("offworld-heapdumper", function () {
 
   afterEach(function() {
     if (clock) clock.restore();
