@@ -25,7 +25,7 @@ Responsible for taking heap dumps, transporting them off-world to exotic destina
 
 **Params**
 
-- destination  - a configured destination object, probably S3 at the moment. TODO: Link to S3  
+- destination  - a configured destination object, probably S3 at the moment. See [S3World](#S3World).  
 
 <a name="OffWorldHeapDumper.Destinations"></a>
 ##OffWorldHeapDumper.Destinations
@@ -60,7 +60,13 @@ constructor.
 Use this to upload a heapdump to S3.
 
 The details object provided in the [writeSnapshot](#OffWorldHeapDumper#writeSnapshot) callback is of the form:
-TODO: Document details (from s3-upload-stream)
+
+    {
+      Location: 'https://bucketName.s3.amazonaws.com/filename.ext',
+      Bucket: 'bucketName',
+      Key: 'filename.ext',
+      ETag: '"bf2acbedf84207d696c8da7dbb205b9f-5"'
+    }
 
 **Params**
 

@@ -38,11 +38,16 @@ In this scenario, we push the heapdump to the S3 bucket of your choice with defa
     heapdumper.writeSnapshot(function(err, details) {
         if (err) throw err;
 
-        //details contains:
-        // TODO: What does details contain?
+        //Since we're using S3 as the destination, the details parameter contains:
+        {
+           Location: 'https://bucketName.s3.amazonaws.com/filename.ext',
+           Bucket: 'bucketName',
+           Key: 'filename.ext',
+           ETag: '"bf2acbedf84207d696c8da7dbb205b9f-5"'
+        }
     });
 
-## TODO: Other examples: multi environment using KeyPrefix
+##### TODO: Other examples: multi environment using KeyPrefix
 
 ##Reference
 

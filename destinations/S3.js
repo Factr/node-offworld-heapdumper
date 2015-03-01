@@ -8,7 +8,14 @@ var AWS               = require("aws-sdk"),
  * Use this to upload a heapdump to S3.
  *
  * The details object provided in the {@link OffWorldHeapDumper#writeSnapshot} callback is of the form:
- * TODO: Document details (from s3-upload-stream)
+ *
+ *     {
+ *       Location: 'https://bucketName.s3.amazonaws.com/filename.ext',
+ *       Bucket: 'bucketName',
+ *       Key: 'filename.ext',
+ *       ETag: '"bf2acbedf84207d696c8da7dbb205b9f-5"'
+ *     }
+ *
  * @param options (required)
  * An object containing the following options:
  *     * bucket (required),

@@ -9,7 +9,7 @@ var _heapdump = require("heapdump");
 var _fs = require("fs");
 
 var HeapdumpOffworld = require("../index");
-var S3Destination = require("../destinations/S3");
+var S3World = require("../destinations/S3");
 
 var clock;
 describe("node-heapdump-offworld", function () {
@@ -23,9 +23,8 @@ describe("node-heapdump-offworld", function () {
       expect(HeapdumpOffworld).to.have.property("Destinations");
     });
     it("should have an S3 instance", function() {
-      //S3World = require("../destinations/S3");
       expect(HeapdumpOffworld.Destinations).to.have.property("S3");
-      expect(HeapdumpOffworld.Destinations.S3).to.equal(S3Destination);
+      expect(HeapdumpOffworld.Destinations.S3).to.equal(S3World);
     });
   });
 

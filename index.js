@@ -13,7 +13,7 @@ var tmp             = require("tmp"),
 
 /**
  * Responsible for taking heap dumps, transporting them off-world to exotic destinations. Like Amazon S3.
- * @param destination - a configured destination object, probably S3 at the moment. TODO: Link to S3
+ * @param destination - a configured destination object, probably S3 at the moment. See {@link S3World}.
  * @constructor
  */
 function OffWorldHeapDumper(destination) {
