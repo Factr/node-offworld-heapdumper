@@ -18,7 +18,7 @@
     "nctest": "./node_modules/.bin/_mocha specs",
     "posttest": "istanbul check-coverage --statements 80 --branches 70 --functions 80 --lines 80 && rm -rf coverage",
     "doc": "jsdoc2md --src index.js destinations/S3.js > reference.md",
-    "prepublish": "npm doc && npm test && npm prune"
+    "prepublish": "npm test && npm prune"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
