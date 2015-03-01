@@ -4,7 +4,7 @@ An NPM module that makes it easy to save NodeJS heapdumps to an external storage
 Useful for troubleshooting memory issues on PaaS environments such as Heroku.
 
 [![build status](https://secure.travis-ci.org/Factr/node-offworld-heapdumper.svg)](http://travis-ci.org/Factr/node-offworld-heapdumper)
-[![Coverage Status](https://coveralls.io/repos/Factr/node-offworld-heapdumper/badge.svg)](https://coveralls.io/r/Factr/node-offworld-heapdumper)
+[![Coverage Status](https://coveralls.io/repos/Factr/node-offworld-heapdumper/badge.svg?branch=master)](https://coveralls.io/r/Factr/node-offworld-heapdumper?branch=master)
 [![dependency status](https://david-dm.org/Factr/node-offworld-heapdumper.svg)](https://david-dm.org/Factr/node-offworld-heapdumper)
 
 ## Installation
