@@ -1,7 +1,7 @@
 {
   "name": "offworld-heapdumper",
   "description": "An NPM module that makes it easy to save heapdumps to an external storage service (starting with Amazon S3).",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "aws-sdk": "^2.1.14",
     "heapdump": "^0.3.5",

@@ -1,0 +1,55 @@
+{
+  "name": "offworld-heapdumper",
+  "version": "0.1.0",
+  "dependencies": {
+    "aws-sdk": {
+      "version": "2.1.14",
+      "from": "aws-sdk@",
+      "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.1.14.tgz",
+      "dependencies": {
+        "xml2js": {
+          "version": "0.2.6",
+          "from": "xml2js@0.2.6",
+          "resolved": "https://registry.npmjs.org/xml2js/-/xml2js-0.2.6.tgz",
+          "dependencies": {
+            "sax": {
+              "version": "0.4.2",
+              "from": "sax@0.4.2",
+              "resolved": "https://registry.npmjs.org/sax/-/sax-0.4.2.tgz"
+            }
+          }
+        },
+        "xmlbuilder": {
+          "version": "0.4.2",
+          "from": "xmlbuilder@0.4.2",
+          "resolved": "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-0.4.2.tgz"
+        }
+      }
+    },
+    "heapdump": {
+      "version": "0.3.5",
+      "from": "heapdump@",
+      "resolved": "https://registry.npmjs.org/heapdump/-/heapdump-0.3.5.tgz"
+    },
+    "moment": {
+      "version": "2.9.0",
+      "from": "moment@",
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.9.0.tgz"
+    },
+    "s3-upload-stream": {
+      "version": "1.0.7",
+      "from": "s3-upload-stream@",
+      "resolved": "https://registry.npmjs.org/s3-upload-stream/-/s3-upload-stream-1.0.7.tgz"
+    },
+    "tmp": {
+      "version": "0.0.24",
+      "from": "tmp@",
+      "resolved": "https://registry.npmjs.org/tmp/-/tmp-0.0.24.tgz"
+    },
+    "underscore": {
+      "version": "1.8.2",
+      "from": "underscore@",
+      "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.8.2.tgz"
+    }
+  }
+}
