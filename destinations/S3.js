@@ -62,7 +62,7 @@ function S3World(options) {
  *            err - contains an error object if something went wrong,
  *            data - information about the saved heapdump
  */
-S3World.prototype.save = function (heapdumpPath, destinationFilename, cb) {
+S3World.prototype.transport = function (heapdumpPath, destinationFilename, cb) {
   if (!heapdumpPath) {
     throw new Error("A valid heapdumpPath must be provided");
   }

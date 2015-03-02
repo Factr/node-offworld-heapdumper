@@ -100,7 +100,7 @@ describe("S3World", function() {
     sandbox.stub(fs, "createReadStream").returns(stubEventEmitter);
   }
 
-  describe("save", function() {
+  describe("transport", function() {
     var fakeUploadResult = {};
     var stubEventEmitterForFileStream, stubEventEmitterForUploadStream;
     beforeEach(function() {
@@ -113,7 +113,7 @@ describe("S3World", function() {
     it("should throw if heapdumpPath is not provided", function() {
       var nullPath = function() {
         var s3 = new S3Destination({bucket:"keeping-up-appearances"});
-        s3.save(null, "dFile");
+        s3.transport(null, "dFile");
       };
 
       expect(nullPath).to.throw(Error, "A valid heapdumpPath must be provided");
@@ -121,12 +121,12 @@ describe("S3World", function() {
     it("should throw if destinationFilename is not provided", function() {
       var nullDestination = function() {
         var s3 = new S3Destination({bucket:"keeping-up-appearances"});
-        s3.save("heapPath", null);
+        s3.transport("heapPath", null);
       }
 
       var missingDestination = function() {
         var s3 = new S3Destination({bucket:"keeping-up-appearances"});
-        s3.save("heapPath");
+        s3.transport("heapPath");
       }
 
       expect(nullDestination).to.throw(Error, "A destinationFilename must be provided");
@@ -134,7 +134,7 @@ describe("S3World", function() {
     });
     it("should prepend the keyPrefix to the destinationFilename and pass it in as key", function(done) {
       var s3 = new S3Destination({bucket:"keeping-up-appearances", keyPrefix: "not_prix_fixe/"});
-      s3.save("heapPath", "key", function() {
+      s3.transport("heapPath", "key", function() {
         expect(S3UploadStream.prototype.upload).to.have.been.calledOnce;
         var spyCall = S3UploadStream.prototype.upload.getCall(0);
         var opts = spyCall.args[0];
@@ -146,7 +146,7 @@ describe("S3World", function() {
     });
     it("should use the supplied properties to upload to S3", function (done){
       var s3 = new S3Destination({bucket:"hole-in-my", keyPrefix: "not_prix_fixe/", acl:"public"});
-      s3.save("heapPath", "key", function() {
+      s3.transport("heapPath", "key", function() {
         expect(S3UploadStream.prototype.upload).to.have.been.calledOnce;
         var spyCall = S3UploadStream.prototype.upload.getCall(0);
         var opts = spyCall.args[0];
@@ -159,7 +159,7 @@ describe("S3World", function() {
     });
     it("should send a good content-type to S3", function (done){
       var s3 = new S3Destination({bucket:"hole-in-my", keyPrefix: "not_prix_fixe/"});
-      s3.save("heapPath", "key", function() {
+      s3.transport("heapPath", "key", function() {
         expect(S3UploadStream.prototype.upload).to.have.been.calledOnce;
         var spyCall = S3UploadStream.prototype.upload.getCall(0);
         var opts = spyCall.args[0];
@@ -171,7 +171,7 @@ describe("S3World", function() {
     });
     it("should call the supplied call back with the S3 info when the upload succeeds", function(done) {
       var s3 = new S3Destination({bucket:"hole-in-my"});
-      s3.save("heapPath", "key", function(err, details) {
+      s3.transport("heapPath", "key", function(err, details) {
         expect(err).to.not.exist;
         expect(details).to.equal(fakeUploadResult);
         done();
@@ -182,7 +182,7 @@ describe("S3World", function() {
       stubUploadFunction(stubEventEmitterForUploadStream, stubEventEmitterForFileStream, expectedError, null);
 
       var s3 = new S3Destination({bucket:"hole-in-my"});
-      s3.save("heapPath", "key", function(err, details) {
+      s3.transport("heapPath", "key", function(err, details) {
         expect(err).to.equal(expectedError);
         expect(details).not.to.exist;
         done();
@@ -193,7 +193,7 @@ describe("S3World", function() {
       stubFileStream(stubEventEmitterForFileStream, expectedError);
 
       var s3 = new S3Destination({bucket:"hole-in-my"});
-      s3.save("heapPath", "key", function(err, details) {
+      s3.transport("heapPath", "key", function(err, details) {
         expect(err).to.equal(expectedError);
         expect(details).not.to.exist;
         done();

@@ -56,7 +56,7 @@ OffWorldHeapDumper.prototype.writeSnapshot = function(options, cb) {
     heapdump.writeSnapshot(path, function(err) {
       if (err) return cb(err);
 
-      that.destination.save(path, options.destinationFilename, function(err, details) {
+      that.destination.transport(path, options.destinationFilename, function(err, details) {
         fs.unlink(path, function(){
           cb(err, details);
         })

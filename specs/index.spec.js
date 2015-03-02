@@ -47,7 +47,7 @@ describe("offworld-heapdumper", function () {
     beforeEach(function() {
       sandbox = sinon.sandbox.create();
       world = {
-        save: sandbox.stub().yields(null, fakeDetails)
+        transport: sandbox.stub().yields(null, fakeDetails)
       };
 
       sandbox.stub(_tmp, "tmpName");
@@ -71,7 +71,7 @@ describe("offworld-heapdumper", function () {
       };
 
       heapdumper.writeSnapshot(opts, function() {
-        expect(world.save).to.have.been.calledWith("tempfilename.heapdump", "destination.file");
+        expect(world.transport).to.have.been.calledWith("tempfilename.heapdump", "destination.file");
         done();
       });
     });
@@ -79,7 +79,7 @@ describe("offworld-heapdumper", function () {
     it("should use a default destination filename if no options are passed", function(done) {
       heapdumper.writeSnapshot(function() {
         var defaultDestinationFilename = util.format("%s.heapdump", moment(fakeDate).utc().format("YYYYMMDD_HHmmss"));
-        expect(world.save).to.have.been.calledWith("tempfilename.heapdump", defaultDestinationFilename);
+        expect(world.transport).to.have.been.calledWith("tempfilename.heapdump", defaultDestinationFilename);
         done();
       });
     });
@@ -103,7 +103,7 @@ describe("offworld-heapdumper", function () {
     });
     it("should call the callback with an error if one occurs during save", function(done) {
       var expectedErr = new Error();
-      world.save.yields(expectedErr);
+      world.transport.yields(expectedErr);
 
       heapdumper.writeSnapshot(function(err) {
         expect(err).to.equal(expectedErr);
