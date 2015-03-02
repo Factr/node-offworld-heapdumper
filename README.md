@@ -47,9 +47,11 @@ In this scenario, we push the heapdump to the S3 bucket of your choice with defa
         }
     });
 
-##### TODO: Other examples: multi environment using KeyPrefix
+##### Other examples:
 
-##Reference
+TODO: multi environment using KeyPrefix
+
+## Reference
 
 See the [reference](reference.md) for a full description of how to use this module.
 
