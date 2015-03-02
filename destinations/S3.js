@@ -22,10 +22,13 @@ var AWS               = require("aws-sdk"),
  *     * acl (default: `private`)
  *     * region (default: `us-east-1`),
  *     * keyPrefix (default: `""`) - prepended to the destination filename on S3. If this ends with a `/`,
- *     it will act as a directory
- *     * accessKeyId (default: taken from standard AWS environment variables, if set),
- *     * secretAccessKey (default: taken from standard AWS environment variables, if set),
- *     * sessionToken (default: taken from standard AWS environment variables, if set),
+ *       it will act as a directory
+ *     * accessKeyId (default: taken from standard AWS configuration -
+ *       see [AWS SDK Configuration Options](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html)),
+ *     * secretAccessKey (default: taken from standard AWS configuration -
+ *       see [AWS SDK Configuration Options](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html)),
+ *     * sessionToken (default: taken from standard AWS configuration -
+ *       see [AWS SDK Configuration Options](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html))
  * @constructor
  */
 function S3World(options) {
@@ -55,12 +58,20 @@ function S3World(options) {
 }
 
 /**
- *
+ * @typedef {Object} S3World~s3Data
+ * @property {string} Location - The url of the saved file on S3
+ * @property {string} Bucket - The bucket the file was saved into
+ * @property {string} Key - The 'key' that the file was saved as
+ * @property {string} ETag - The saved file's e-tag
+ */
+
+/**
+ * Asyncronously transports the heapdump to S3, calling the optional callback when it is done.
  * @param heapdumpPath (required) The path of headdump to transport off world
  * @param destinationFilename (required) The filename of the file on the external world.
  * @param cb An optional callback with two params:
- *            err - contains an error object if something went wrong,
- *            data - information about the saved heapdump
+ *     * err - contains an error object if something went wrong,
+ *     * data - information about the saved heapdump. See {@link S3World~s3Data}
  */
 S3World.prototype.transport = function (heapdumpPath, destinationFilename, cb) {
   if (!heapdumpPath) {
