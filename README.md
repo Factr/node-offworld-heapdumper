@@ -10,7 +10,7 @@ Useful for troubleshooting memory issues on PaaS environments such as Heroku.
 ## Installation
 
 ```
-npm install node-offworld-heapdumper --save
+npm install offworld-heapdumper --save
 ```
 
 ## Usage
